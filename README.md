@@ -7,3 +7,5 @@ Dependencies
 -Mysql
 -PHP5
 -HTML5
+
+Licensed Under GNU General Public License v3.0
