@@ -1,0 +1,158 @@
+@media(max-width:445px){
+	.navbar-brand{
+		margin-top: -12px!important;
+		margin-left: 8px!important;
+	}
+	.navbar-burger{
+		color:#fff;
+	}
+	.navbar-burger i{
+		font-size: 22px;
+		margin-top: 4px;
+	}
+	.navbar-header{
+		padding-bottom: 0px;
+	}
+
+	.sis-content .col-status{
+	font-size: 13px;
+	padding-top: 20px;
+	padding-left: 0px;
+	}
+
+	.sis-content .col-status .label-status{
+	width: 74px;
+	display: block;
+	padding-top: 35px;
+	padding-bottom: 10px;
+	}
+
+	.li-right{
+	float: left;
+	}
+
+	.col-label{
+		padding-left: 25px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.col-search{
+		padding-left: 0px;
+	}
+}
+
+@media(max-width:759px){
+	.navbar-brand{
+		margin-top: -5px!important;
+		margin-left: 8px!important;
+	}
+	.navbar-burger{
+		color:#fff;
+	}
+	.navbar-burger i{
+		font-size: 44px;
+		margin-top: 4px;
+	}
+	.navbar-header{
+		padding-bottom: 0px;
+	}
+	
+	.sis-content .col-status{
+	font-size: 13px;
+	padding-top: 25px;
+	}
+
+	.sis-content .col-status .label-status{
+	display: block;
+	font-size: 16px;
+	width: 90px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	}
+
+	.li-right>li>a {
+	float: left;
+	}
+
+	.col-label{
+		padding-left: 25px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.col-search{
+		padding-left: 0px;
+	}
+}
+
+@media (min-width: 768px){
+	.li-right>li>a {
+	float: left;
+	}
+	.li-right{
+	margin: 0;
+	}
+	.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header{
+		margin-right: -10px;
+	}
+}
+@media(max-width:991px){
+	.sis-content .col-status .label-status{
+	font-size: 13px;
+	display: block;
+	}
+	
+	.nav-tabs>li>a {
+	padding: 7px 9px;
+	}
+
+	.sis-content{
+	margin-top: 0px;
+	}
+	.li-right{
+	float: left;
+	}
+	.li-right>li>a {
+	float: left;
+	}
+
+	.li-left{
+	margin-bottom: 0px!important;
+	}
+
+	.col-label{
+		padding-left: 25px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+}
+@media(min-width:945px) and (max-width:1199px){
+	.sis-content .col-status{
+	font-size: 26px;
+	padding-top: 20px;
+	padding-left: 150px;
+	}
+
+	.sis-content .col-status .label-status{
+	width: 140px;
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	}
+
+	.li-right{
+	float: left;
+	margin: 0px;
+	}
+
+	.nav-tabs>li>a {
+		padding: 8px 10px!important;
+	}
+
+}
+
+@media(min-width:1200px){
+	.li-right {
+	float: right!important;
+	margin-right: 80px;
+	}	
+}
