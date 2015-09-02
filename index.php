@@ -18,19 +18,23 @@ if(isset($_GET['notice'])){
 if(isset($_SESSION['login'])){
 	$navbar .='<ul class="nav navbar-nav navbar-default li-left">';
 	$navbar .= '
-	  <li><a href="index.php" id="home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+	  <li><a href="index" id="home"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
 	  <li><a href="#tugas-anda" id="anda"><i class="glyphicon glyphicon-th-list"></i> Tugas Anda</a></li>
-	  <li><a href="#notif" id="notif"><i class="glyphicon glyphicon-bell"></i> Notification</a></li>
+	  <li><a href="#notif" id="notif" role="button" ><i class="glyphicon glyphicon-bell"></i> Notifikasi</a></li>
+	  <li><a href="#aksi" id="aksi" role="button" ><i class="glyphicon glyphicon-pawn"></i> Aktivitas</a></li>
 	  ';
 	$navbar.='</ul>';
 	$navbar.='<ul class="nav navbar-nav li-right">';
 	$navbar.='<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" 
-	 id="profile"><b class="caret"></b> Login as : '.$_SESSION['login'].'</a>';
-	$navbar.='<ul class="dropdown-menu">';
-	$navbar.='<li><a href="#account" id="account"><i class="glyphicon glyphicon-cog"></i> Pengaturan Akun</a></li>';
-	$navbar.='<li><a href="/tugas/backend/logout.proses.php" id="logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li></ul>';
+	 id="profile"><b class="caret"></b> <img src="'.$_SESSION['foto'].'" class="foto-index" alt="foto"> '.$_SESSION['login'].'</a>';
+	$navbar.='<ul class="dropdown-menu dropwidth">';
+	if($_SESSION['karyawan']==2){
+		$navbar.='<li><a href="#super" id="super"><i class="glyphicon glyphicon-user"></i> Admin Area</a></li>';
+	}
+	$navbar.='<li><a href="/partial/edit-acc.php" id="account"><i class="glyphicon glyphicon-cog"></i> Pengaturan Akun</a></li>';
+	$navbar.='<li><a href="/backend/logout.proses.php" id="logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li></ul>';
 	$navbar.='</li></ul>';
-	$plus = '<li><a href="/tugas/partial/tugasplus.php" id="plus"><i class="glyphicon glyphicon-plus"></i></a></li>';
+	$plus = '<li><a href="/partial/tugasplus.php" id="plus"><i class="glyphicon glyphicon-plus"></i></a></li>';
 
 	//@desc acctab //task remaining
 	$sql  ="SELECT tugas_id, status FROM tugas ";
@@ -62,35 +66,39 @@ if(isset($_SESSION['login'])){
 	$complete ='<label class="label label-success">'.$stmt->rowCount().'</label>';
 	$acctab.='
 		<ul class="nav nav-tabs nav-acc">';
-	$acctab.='<li><a href="/tugas/backend/tugas-acc.proses.php?tugas=0" id="all-acc" class="acc-active" >Total '.$task.'</a></li>';
-  	$acctab.='<li><a href="/tugas/backend/tugas-acc.proses.php?tugas=0&status=0" id="open-acc">Open '.$open.'</a></li>';
-  	$acctab.='<li><a href="/tugas/backend/tugas-acc.proses.php?tugas=0&status=1" id="on-going-acc">On-Going '.$ongoing.'</a></li>';
-  	$acctab.='<li><a href="/tugas/backend/tugas-acc.proses.php?tugas=0&status=2" id="complete-acc">Complete '.$complete.'</a></li>';
+	$acctab.='<li><a href="/backend/tugas-acc.proses.php?tugas=0" id="all-acc" class="acc-active" >Semua '.$task.'</a></li>';
+  	$acctab.='<li><a href="/backend/tugas-acc.proses.php?tugas=0&status=0" id="open-acc">Terbuka '.$open.'</a></li>';
+  	$acctab.='<li><a href="/backend/tugas-acc.proses.php?tugas=0&status=1" id="on-going-acc">Dikerjakan '.$ongoing.'</a></li>';
+  	$acctab.='<li><a href="/backend/tugas-acc.proses.php?tugas=0&status=2" id="complete-acc">Selesai '.$complete.'</a></li>';
 	$acctab.='</ul>';	
 }else{
 	$navbar .='<ul class="nav navbar-nav navbar-default">';
 	$navbar .='
-	  <li><a href="index.php" id="home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+	  <li><a href="index" id="home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 	  <li><a href="#sis-content-login" id="login"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
 	';
 	$navbar.='</ul>';
 }
 
-	  
-
+	 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 	<meta charset="UTF-8">
-	<script src="/tugas/js/jquery.min.js"></script>
-	<script src="/tugas/js/bootstrap.min.js"></script>
-	<script src="/tugas/js/bootpag.min.js"></script>
-    <script src="/tugas/js/frontend.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="/tugas/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/tugas/css/style-index.css">
-	<link rel="stylesheet" href="/tugas/css/responsive.css">
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootpag.min.js"></script>
+    <script src="/js/frontend.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/js/jqueryvalidation/jquery.validate.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/js/jqueryvalidation/localization/messages_id.js" charset="UTF-8"></script>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style-index.css">
+	<link rel="stylesheet" href="/css/responsive.css">
+    <link href="/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
+    <link rel="icon" href="/img/ic_header.png">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -108,7 +116,7 @@ if(isset($_SESSION['login'])){
 					aria-controls="navbar">
 					<i class="glyphicon glyphicon-menu-hamburger"></i>
 				</button>
-				<a href="#home" class="navbar-brand"><img src="/tugas/img/logo-sisjar.png" /></a>
+				<a href="#home" class="navbar-brand"><img src="/img/logo-sisjar.png" /></a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
@@ -125,7 +133,7 @@ if(isset($_SESSION['login'])){
 	<div class="login" id="sis-content-login">
 		<div class="container">
 			<div class="col-md-6 col-md-offset-2 col-login">
-				<form action="/tugas/backend/login.proses.php" class="form-horizontal input-wrap" role="form" method="post">
+				<form action="/backend/login.proses.php" class="form-horizontal input-wrap" role="form" method="post">
 					<div class="form-group">
 						<label for="username" class="col-sm-3 control-label">Username:</label>
 						<div class="col-sm-8">
@@ -146,15 +154,17 @@ if(isset($_SESSION['login'])){
 				</form>
 			</div>
 		</div>
-	</div>
+	</div>		
+		
+
 	<!-- TAB TUGAS !-->
 	<div class="sis-tugas-tab" id="sis-tugas-tab">
 		<div class="container">
 		<div class="col-md-10 col-md-offset-1 sis-sub-nav" id="sis-sub-nav">
 		<?php echo $acctab ?>
 		<ul class="nav nav-tabs nav-home">
-			<form action="/tugas/backend/search.proses.php" method="get" id="formsearch">
-			<li class="col-md-5 col-search" id="col-search">
+			<form action="/backend/search.proses.php" method="get" id="formsearch">
+			<li class="col-md-4 col-search" id="col-search">
                 
 					<div class="form-group form-tab-search">
 						<div class="input-group input-group-md">
@@ -178,10 +188,10 @@ if(isset($_SESSION['login'])){
 			</li>
 			</form>
 			<?php echo $plus;?>
-  			<li><a href="/tugas/backend/list.proses.php?tugas=1&status=0" id="open">Open</a></li>
-  			<li><a href="/tugas/backend/list.proses.php?tugas=1&status=1" id="on-going">On-Going</a></li>
-  			<li><a href="/tugas/backend/list.proses.php?tugas=1&status=2" id="complete">Complete</a></li>
-  			<li><a href="/tugas/backend/list.proses.php?tugas=0" id="all" class="act" >All</a></li>
+  			<li><a href="/backend/list.proses.php?tugas=1&status=0" id="open">Terbuka</a></li>
+  			<li><a href="/backend/list.proses.php?tugas=1&status=1" id="on-going">Dikerjakan</a></li>
+  			<li><a href="/backend/list.proses.php?tugas=1&status=2" id="complete">Selesai</a></li>
+  			<li><a href="/backend/list.proses.php?tugas=0" id="all" class="act" >Semua</a></li>
 		</ul>
 		<div class="clearfix"></div>
 		</div>
@@ -190,13 +200,30 @@ if(isset($_SESSION['login'])){
 	
 	<!-- CONTENT !-->
 	<div class="sis-content" id="sis-content">
-		<div class="container">
+		<div class="container">	
 			<div class="col-md-10 col-md-offset-1 col-content" id="content-page">
 			<!-- backend list.proses.php !-->
 
 			</div>
 		</div>
 	</div>
+	<div class="container">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+	</div>
+	</div>
+
 
 	<div class="sis-paging" id="sis-paging">
 		<div class="container">
@@ -217,14 +244,27 @@ if(isset($_SESSION['login'])){
 
                 <div id="pagination-acc" class="pagination">
                 </div>
+				
 
+                <div id="pagination-open-acc" class="pagination">
+                </div>
+
+
+                <div id="pagination-ongoing-acc" class="pagination">
+                </div>
+
+
+                <div id="pagination-complete-acc" class="pagination">
+                </div>
+
+                </div>
 			</div>
 		</div>
 	</div>
 
 	<div class="sis-footer">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-3">
+			<div class="col-md-8 col-md-offset-1">
 			<h4 class="">[Dev] by &#169; Sistem dan Jaringan STIKOM Bali</h4>
 			</div>
 		</div>

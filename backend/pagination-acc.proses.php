@@ -4,9 +4,9 @@
 	$sql="SELECT tugas_id, status FROM tugas ";
 	if(isset($_SESSION['karyawan'])){
 		$sql.=" WHERE karyawan_untuk = ".$_SESSION['karyawan'];
-	}else{
-		echo "Not Logged in";
-		exit;
+	}
+	if(isset($_GET['status'])){
+	$sql.= " AND status = ".$_GET['status'];
 	}
 	$sql .=" ORDER BY tugas_id DESC";
 	$stmt=$dbh->prepare($sql);

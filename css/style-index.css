@@ -2,6 +2,20 @@ body{
 	font:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+h3{
+	margin:0;
+}
+.danger{
+color: #a94442;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.italic{
+	font-style: italic;
+}
 /* TOP NAVBAR */
 .sis-nav{
 	background: #0b448c;
@@ -31,23 +45,23 @@ body{
 	background: rgba(0,0,0,0.4);
 }
 
-.dropdown-menu {
+.li-right .dropdown-menu {
 	background:#0b448c;
 }
 
-.dropdown-menu li a{
+.li-right .dropdown-menu li a{
 	color: #ffffff;
 }
 
-.dropdown-menu li a:hover{
+.li-right .dropdown-menu li a:hover{
 	background: rgba(0,0,0,0.4);
 }
 
-.dropdown-menu li a:focus{
+.li-right .dropdown-menu li a:focus{
 	background: rgba(0,0,0,0.8);
 }
 
-.dropdown-menu li .hover{
+.li-right .dropdown-menu li .hover{
 	background: rgba(0,0,0,0.4);
 }
 
@@ -155,7 +169,7 @@ body{
 /*font label status*/
 
 .sis-content .col-status{
-	font-size: 26px;
+	font-size: 24px;
 	padding-top: 20px;
 }
 
@@ -174,8 +188,10 @@ body{
 }
 
 .sis-footer{
-	bottom: 0;
 	background:#0b448c;
+    bottom: 0;
+    width: 100%;
+	text-align: center;
 }
 
 .sis-footer h4{
@@ -224,3 +240,226 @@ color: #fff;
 	padding-top: 10px;
 }
 
+.label-lokasi{
+	    padding: 7px 10px;
+}
+
+
+/*@desc modal */
+.deskripsi-tugas{
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 10px;
+}
+
+/*@desc modal komentar */
+
+.text-komentar{
+	width: 100%;
+}
+
+.komentar-title{
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 18px;
+	padding-left: 65px;
+}
+
+.komentar-isi{
+	padding-left: 65px;
+	height: 66%;
+}
+
+.komentar-content{
+	background: #fff;
+	height: 80px;
+	clear: both;
+	border-radius: 20px;
+	margin-top :10px;
+}
+
+.komentar-waktu{
+	vertical-align: right;
+	display: inline;
+	font-weight: normal;
+	padding-right: 15px;
+	color:#656565;
+	font-size: 14px;
+}
+.komentar-img{
+	height: 80px;
+}
+
+.komentar img{
+	height: 100%;
+	width:60px;
+	border-radius: 20px 0px 0px 20px;
+}
+
+.col-tab-text{
+	padding-bottom: 0;
+}
+.komentar-load{
+margin-top: 10px;
+}
+
+.komentar-load a{
+	color: #fff;
+	font-weight: bold;
+}
+
+.komentar-load a:hover{
+	color: #5cb85c;
+	font-weight: bold;
+	text-decoration: none;
+}
+/*@desc activity */
+.sidebar-offcanvas{
+	color:#fff;
+	background: #000;
+}
+
+.inp-dtp{
+	margin-bottom: 0;
+}
+
+.notif-container table{
+	border-radius: 0px;
+}
+
+
+
+
+.notif-container table:hover{
+	background: rgba(0,0,0,0.8);
+	color: #fff;
+	display: block;
+	text-decoration: none;
+}
+
+.notif-container  a{
+	text-decoration: none;
+}
+
+.notif-container  a:hover{
+	text-decoration: none;
+}
+
+.notif-container .table-content{
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+	border-collapse: collapse;
+	margin-top:0px;
+	margin-bottom: 8px;	
+	color: #000;
+}
+
+.notif-container .table-content-notif{
+	color: #000;
+	background: #e5e5e5;
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+	display: block;
+	text-decoration: none;
+	margin-top:0px;
+	margin-bottom: 8px;	
+}
+
+.notif-container .table-content>tbody>tr>td{
+	border-top: none;
+}
+
+.notif-container .table-content-notif>tbody>tr>td{
+	border-top: none;
+}
+
+.notif-container .komentar-border{
+	border-bottom: 1px solid rgba(11,68,140,0.9);
+}
+
+.notif-container .komentar-notif{
+	font-weight: normal;
+	font-size: 12px;
+	font-style: italic;
+	padding-top:13px;
+}
+
+.popover-content{
+	padding: 0px;
+}
+
+.notif-container{
+
+}
+
+.popover-title{
+	margin: 0;
+    font-size: 12px;
+    background-color: rgba(11,68,140,0.9);
+    color: white;
+}
+
+.popover-content {
+   height: 400px;
+   width: 250px;
+   overflow-y: scroll;
+}
+
+.notif-foto{
+	border-radius: 50%;
+	width: 40px;
+	height: 30px;
+}
+
+.foto-index{
+	border-radius: 50%;
+	width: 30px;
+	height: 20px;
+}
+
+.dropwidth{
+	width: 100%;
+}
+
+
+.foto-komentar{
+	height:80px;
+	width:60px;
+	border-radius: 20px 0px 0px 20px;
+}
+
+.preview-foto{
+	border: 1px solid #e5e5e5;
+}
+
+.btn-file {
+        position: relative;
+        overflow: hidden;
+}
+
+.btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+}
+
+.inp-file{
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+.preview-box{
+	border: 1px solid #e5e5e5;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
