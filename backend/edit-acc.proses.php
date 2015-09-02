@@ -2,7 +2,7 @@
 session_start();
 include 'lib-connection.php';
 include 'ImageManipulator.php';
-$notice="";
+$notice="<br/>";
 if(isset($_POST['edit-nama'])){
 
 	if(strlen($_POST['edit-nama']) > 3){
@@ -12,12 +12,22 @@ if(isset($_POST['edit-nama'])){
 	$stmt->execute();
 	$notice.= "nama berhasil di rubah"."<br/>";
 	$_SESSION['login'] = $_POST['edit-nama'];
-	echo $notice;
+	}else if(strlen($_POST['edit-nama']) > 0 && strlen($_POST['edit-nama']) < 4){
+		$notice.="nama terlalu pendek min 4 karakter"."<br/>";
 	}
 }
 
 if(isset($_POST['edit-password'])){
-
+	if(strlen($_POST['edit-password']) > 3){
+	$pass = md5($_POST['edit-password']);
+	$sql="UPDATE  `karyawan` SET  `password` =  
+	'".$pass."' WHERE `karyawan_id` =  '".$_SESSION['karyawan']."'";
+	$stmt=$dbh->prepare($sql);
+	$stmt->execute();
+	$notice.= "password berhasil di rubah"."<br/>";
+	}else if(strlen($_POST['edit-password']) > 0 && strlen($_POST['edit-password']) < 4){
+		$notice.="password terlalu pendek min 4 karakter"."<br/>";
+	}
 }
 
 if(isset($_FILES["editfoto"])){
@@ -46,13 +56,12 @@ if(isset($_FILES["editfoto"])){
 	$stmt->execute();
 	$notice.= "foto berhasil di rubah"."<br/>";
 	$_SESSION['foto']=$foto;
-	echo $notice;
 	}else{
-		$notice.="Foto error tidak bisa di baca";
-		echo $notice;
+		$notice.="Foto error tidak bisa di baca"."<br/>";
+		exit;
 	}
-
 }
 
+header('Location: http://manajemen-tugas.dev/index?notice='.$notice);
 
 ?>
