@@ -2,11 +2,13 @@
 Manajemen Tugas adalah aplikasi web untuk monitoring dan manajement pekerjaan (assigment) yang ada pada sebuah divisi dalam perusahaan
 
 Dependencies
--JQuery
--Bootstrap
--Mysql
--PHP5
--HTML5
+<ol>
+<li>JQuery</li>
+<li>Bootstrap</li>
+<li>Mysql</li>
+<li>PHP5</li>
+<li>HTML5</li>
+</ol>
 
 How To Use :
 -Create your virtual host with name manajemen-tugas.dev
