@@ -4,7 +4,49 @@ $(document).ready(function(){
         window.history.pushState({}, "Hide", "http://manajemen-tugas.dev/index");
  };*/
  $.get( "/backend/list.proses.php", { tugas: 0} ).done(function( data ) {
-        $("#content-page").html(data);
+        var direct = $("#direction").data("content");
+        if(direct == "plus"){
+            $("#open").removeClass('act');
+            $("#on-going").removeClass('act');
+            $("#complete").removeClass('act');
+            $("#all").removeClass('act');
+            $("#plus").addClass("act");
+            $("#col-search").hide();
+            $("#col-label").hide();
+            $("#content-page").removeClass('col-md-10');
+            $("#content-page").addClass('col-md-8');
+            $("#content-page").load("/partial/tugasplus.php");
+            $('#pagination-all').hide();
+            $('#pagination-complete').hide();
+            $('#pagination-open').hide();
+            $('#pagination-going').hide();
+            $('#pagination-acc').hide();
+            $('#pagination-open-acc').hide();
+            $('#pagination-ongoing-acc').hide();
+            $('#pagination-complete-acc').hide();  
+            $('.pagination-search').remove();
+            $('#content-page').css("margin-bottom","30px");
+        }else if(direct == "admin"){
+            $("#content-page").removeClass('col-md-10');
+            $("#content-page").addClass('col-md-8');
+            $("#content-page").load($("#super").attr("href"));
+            $(".nav-home").hide();
+            $(".nav-acc").hide();
+            $('#pagination-all').hide();
+            $('#pagination-complete').hide();
+            $('#pagination-open').hide();
+            $('#pagination-going').hide();
+            $('#pagination-acc').hide();
+            $('#pagination-open-acc').hide();
+            $('#pagination-ongoing-acc').hide();
+            $('#pagination-complete-acc').hide();  
+            $('.pagination-search').remove();
+            $('#content-page').css("margin-bottom","20px");
+            $('#content-page').css("margin-top","20px");
+        }
+        else{
+            $("#content-page").html(data);
+        }
         $("#sis-notice").fadeOut(2200);
         $("#sis-content-login").hide();
         $(".nav-acc").hide();
@@ -82,7 +124,8 @@ $(document).ready(function(){
                     $("#myModal .modal-dialog").load(target, function() { 
                             $("#myModal").modal("show");
                             e.popover('hide');
-                            $.get("/backend/notif-dibaca.proses.php",{notif:x}); 
+                            $.get("/backend/notif-dibaca.proses.php",{notif:x});
+                            $("#notif-count").load("/backend/notif-count.proses.php"); 
                     });
                 });
             });
@@ -140,6 +183,26 @@ $(document).ready(function(){
             $("#content-page").removeClass('col-md-10');
             $("#content-page").addClass('col-md-8');
             $("#content-page").load($("#account").attr("href"));
+            $(".nav-home").hide();
+            $(".nav-acc").hide();
+            $('#pagination-all').hide();
+            $('#pagination-complete').hide();
+            $('#pagination-open').hide();
+            $('#pagination-going').hide();
+            $('#pagination-acc').hide();
+            $('#pagination-open-acc').hide();
+            $('#pagination-ongoing-acc').hide();
+            $('#pagination-complete-acc').hide();  
+            $('.pagination-search').remove();
+            $('#content-page').css("margin-bottom","20px");
+            $('#content-page').css("margin-top","20px");
+        });
+
+        $("#super").click(function(e){
+            e.preventDefault();
+            $("#content-page").removeClass('col-md-10');
+            $("#content-page").addClass('col-md-8');
+            $("#content-page").load($("#super").attr("href"));
             $(".nav-home").hide();
             $(".nav-acc").hide();
             $('#pagination-all').hide();

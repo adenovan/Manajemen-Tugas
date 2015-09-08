@@ -18,7 +18,7 @@ if($result['dibaca']==0){
 $html.='<table class="table table-content notif" id="cont-notif" data-idnotif="'.$result['notif_id'].'" data-dibaca="'.$result['dibaca'].'">';
 $html.='<tr class="komentar-border">
 <td><img src="'.$result['foto_karyawan'].'" class="notif-foto" alt=""></td>
-<td class="komentar-notif">'.$result['waktu'].' <i class="glyphicon glyphicon-info-sign"></i></td></tr>';
+<td class="komentar-notif">'.$result['waktu'].' <i class="glyphicon glyphicon-info-sign danger"></i></td></tr>';
 }else{
 $html.='<table class="table table-content-notif notif" id="cont-notif" data-idnotif="'.$result['notif_id'].'" data-dibaca="'.$result['dibaca'].'">';
 $html.='<tr class="komentar-border">
@@ -28,7 +28,7 @@ $html.='<tr class="komentar-border">
 
 $html.='<tr>';
 $html.='<td colspan="2">'.$result['isi'].'</td>';
-$html.-'</tr>';
+$html.='</tr>';
 $html.='</table>';
 $html.='</a>';
 $html.='</div>';

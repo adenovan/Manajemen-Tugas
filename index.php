@@ -6,6 +6,10 @@ $plus ="";
 $notice="";
 $htmlnotif="";
 $acctab="";
+$content="";
+if(isset($_GET['content'])){
+	$content=$_GET['content'];
+}
 
 if(isset($_GET['notice'])){
 	$notice= $_GET['notice'];
@@ -16,12 +20,19 @@ if(isset($_GET['notice'])){
 	$htmlnotif.='</div></div></div>';
 }
 if(isset($_SESSION['login'])){
+	$sql  ="SELECT dibaca FROM `notifikasi` WHERE karyawan_id = ".$_SESSION['karyawan']." and dibaca=0";
+	$stmt=$dbh->prepare($sql);
+	$stmt->execute();
+	$open="";
+	if ($stmt->rowCount() > 0) {
+	$open .='<label id="notif-count" class="label label-danger">'.$stmt->rowCount().'</label>';
+	}
 	$navbar .='<ul class="nav navbar-nav navbar-default li-left">';
 	$navbar .= '
 	  <li><a href="index" id="home"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
-	  <li><a href="#tugas-anda" id="anda"><i class="glyphicon glyphicon-th-list"></i> Tugas Anda</a></li>
-	  <li><a href="#notif" id="notif" role="button" ><i class="glyphicon glyphicon-bell"></i> Notifikasi</a></li>
-	  <li><a href="#aksi" id="aksi" role="button" ><i class="glyphicon glyphicon-pawn"></i> Aktivitas</a></li>
+	  <li><a href="#" id="anda"><i class="glyphicon glyphicon-th-list"></i> Tugas Anda</a></li>
+	  <li><a href="#" id="notif" role="button" ><i class="glyphicon glyphicon-bell"></i> Notifikasi '.$open.'</a></li>
+	  <li><a href="#" id="aksi" role="button" ><i class="glyphicon glyphicon-pawn"></i> Aktivitas</a></li>
 	  ';
 	$navbar.='</ul>';
 	$navbar.='<ul class="nav navbar-nav li-right">';
@@ -29,7 +40,7 @@ if(isset($_SESSION['login'])){
 	 id="profile"><b class="caret"></b> <img src="'.$_SESSION['foto'].'" class="foto-index" alt="foto"> '.$_SESSION['login'].'</a>';
 	$navbar.='<ul class="dropdown-menu dropwidth">';
 	if($_SESSION['karyawan']==2){
-		$navbar.='<li><a href="#super" id="super"><i class="glyphicon glyphicon-user"></i> Admin Area</a></li>';
+		$navbar.='<li><a href="/partial/admin.area.php" id="super"><i class="glyphicon glyphicon-user"></i> Admin Area</a></li>';
 	}
 	$navbar.='<li><a href="/partial/edit-acc.php" id="account"><i class="glyphicon glyphicon-cog"></i> Pengaturan Akun</a></li>';
 	$navbar.='<li><a href="/backend/logout.proses.php" id="logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li></ul>';
@@ -104,6 +115,7 @@ if(isset($_SESSION['login'])){
 
 	</head>
 	<body>
+	<div id="direction" data-content="<?php echo $content;?>"></div>
 	<!-- HEADER !-->
 	<div class="sis-nav">
 		<div class="container">

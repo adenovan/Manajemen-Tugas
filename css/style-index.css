@@ -9,6 +9,9 @@ h3{
 color: #a94442;
 }
 
+.success{
+	color:#5cb85c;
+}
 .bold{
 	font-weight: bold;
 }
@@ -419,7 +422,7 @@ margin-top: 10px;
 	width: 100%;
 }
 
-
+/*@desc pengaturan aku */
 .foto-komentar{
 	height:80px;
 	width:60px;
@@ -462,4 +465,21 @@ margin-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+/* @desc admin area */
+
+.aktivitas-box{
+   height: 550px;
+   overflow-y: scroll;
+}
+
+.hapus-wrap{
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.minus-box{
+	margin-bottom: 10px;
+	border:1px solid #e5e5e5;
 }
