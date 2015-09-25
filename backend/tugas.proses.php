@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include 'lib-connection.php';
 if(isset($_GET['tugas'])){
  $sql ="SELECT a.tugas_id, a.tugas ,a.tags, b.nama_karyawan AS oleh, c.nama_karyawan AS untuk ,
@@ -66,7 +67,8 @@ if(isset($_GET['tugas'])){
   <td class="col-md-3">';
 $html.='<span class="label label-default label-lokasi">Lokasi</span> '.ucfirst($result['lokasi']).' ';
 $html.='</td>';
-if($_SESSION['karyawan']==$result['karyawan_untuk']){
+
+if(isset($_SESSION['karyawan']) && $_SESSION['karyawan']==$result['karyawan_untuk']){
 $html.='<td class="col-md-3 col-md-offset-2">';
 $html.='<form action="/backend/update-status.php" method="post">';
 $html.='<input type="hidden" name="namatugas" value="'.ucfirst($result['tugas']).'">';

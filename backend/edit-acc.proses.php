@@ -56,12 +56,12 @@ if(isset($_FILES["editfoto"])){
 	$stmt->execute();
 	$notice.= "foto berhasil di rubah"."<br/>";
 	$_SESSION['foto']=$foto;
-	}else{
+	}else if($_FILES["editfoto"]["error"]==1){
 		$notice.="Foto error tidak bisa di baca"."<br/>";
-		exit;
 	}
 }
 
 header('Location: http://manajemen-tugas.dev/index?notice='.$notice);
+exit;
 
 ?>

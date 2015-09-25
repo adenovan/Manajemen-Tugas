@@ -37,7 +37,7 @@ if($karyawan_id!==$karyawan_untuk){
 }
 
 $notice="Tugas baru ".$judul."berhasil di buat";
-$content="plus";
+$content="else";
     header('Location: http://manajemen-tugas.dev/index?notice='.$notice.'&content='.$content);
  	exit;
 }else{

@@ -85,7 +85,7 @@ if(isset($_SESSION['login'])){
 }else{
 	$navbar .='<ul class="nav navbar-nav navbar-default">';
 	$navbar .='
-	  <li><a href="index" id="home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+	  <li><a href="index" id="home"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
 	  <li><a href="#sis-content-login" id="login"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
 	';
 	$navbar.='</ul>';
