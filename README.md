@@ -22,6 +22,8 @@ Manajemen Tugas is a task management and monitoring system based on web applicat
 <h2>Preview</h2>
 <h4>Desktop</h4>
 ![alt tag](https://raw.githubusercontent.com/adenovan/Manajemen-Tugas/master/preview/Desktop.png)
+<h5>Task Detail (Detail Tugas)</h5>
+![alt tag](https://raw.githubusercontent.com/adenovan/Manajemen-Tugas/ff673459dd1fa8cef93697064fe731e571aa2ab6/preview/komentar-3.PNG)
 <br/></br>
 <h4>Mobile</h4>
 ![alt tag](https://raw.githubusercontent.com/adenovan/Manajemen-Tugas/master/preview/mobile.jpg)
