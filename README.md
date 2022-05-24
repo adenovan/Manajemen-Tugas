@@ -31,5 +31,7 @@ Licensed Under GNU General Public License v3.0
 
 
 My Crypto Wallets for donation
-btc : 1ANkzqdA3S8xc81ktX69g3LAwW18UUf4DY
-versus : RJex5MWSeFwXg8NxMh5GmZfNhmTj7acKNA
+
+btc:1ANkzqdA3S8xc81ktX69g3LAwW18UUf4DY
+
+versus:RJex5MWSeFwXg8NxMh5GmZfNhmTj7acKNA
