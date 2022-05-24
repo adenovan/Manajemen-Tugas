@@ -28,3 +28,8 @@ Manajemen Tugas is a task management and monitoring system based on web applicat
 <h4>Mobile</h4>
 ![alt tag](https://raw.githubusercontent.com/adenovan/Manajemen-Tugas/master/preview/mobile.jpg)
 Licensed Under GNU General Public License v3.0
+
+
+My Crypto Wallets for donation
+btc : 1ANkzqdA3S8xc81ktX69g3LAwW18UUf4DY
+versus : RJex5MWSeFwXg8NxMh5GmZfNhmTj7acKNA
